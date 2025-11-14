@@ -122,10 +122,20 @@
       <template #header>
         <div class="card-header">
           <span>战报</span>
+          <div class="round-tabs" v-if="battleLog.length">
+            <el-button
+              v-for="r in totalRounds"
+              :key="r"
+              size="small"
+              class="round-tab"
+              :class="{ active: currentRound === r }"
+              @click="scrollToRound(r)"
+            >回合{{ r }}</el-button>
+          </div>
         </div>
       </template>
-      <div class="log">
-        <div class="log-item" v-for="(e,i) in battleLog" :key="i">
+      <div class="log" ref="logRef" @scroll="onLogScroll">
+        <div class="log-item" v-for="(e,i) in battleLog" :key="i" :data-index="i">
           <span>回合{{ e.round }} - {{ e.phase }}：{{ e.attacker }} → {{ e.defender }}，{{ e.triggered ? '触发' : '未触发' }}，伤害 {{ e.damage }}</span>
         </div>
       </div>
@@ -139,7 +149,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, nextTick } from 'vue'
 import generalApi from '@/api/general'
 import skillApi from '@/api/skill'
 import battleApi from '@/api/battle'
@@ -149,6 +159,51 @@ const defaultGeneral = '/resources/skin/skill/default_bingren.png'
 const skills = ref([])
 const battleLog = ref([])
 const result = ref(null)
+const logRef = ref(null)
+const currentRound = ref(1)
+const totalRounds = computed(() => {
+  const rounds = new Set((battleLog.value || []).map(e => e.round))
+  return Array.from(rounds).sort((a,b) => a-b)
+})
+
+const roundAnchors = ref([])
+const initRoundAnchors = () => {
+  roundAnchors.value = []
+  const container = logRef.value
+  if (!container) return
+  const items = container.querySelectorAll('.log-item')
+  const firstIndexByRound = new Map()
+  battleLog.value.forEach((e, idx) => {
+    if (!firstIndexByRound.has(e.round)) firstIndexByRound.set(e.round, idx)
+  })
+  totalRounds.value.forEach(r => {
+    const idx = firstIndexByRound.get(r)
+    if (idx !== undefined) roundAnchors.value[r] = items[idx]
+  })
+}
+
+const scrollToRound = (r) => {
+  const container = logRef.value
+  const anchor = roundAnchors.value[r]
+  if (!container || !anchor) return
+  const top = anchor.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop
+  container.scrollTo({ top, behavior: 'smooth' })
+  currentRound.value = r
+}
+
+const onLogScroll = () => {
+  const container = logRef.value
+  if (!container) return
+  const scrollTop = container.scrollTop
+  let active = currentRound.value
+  totalRounds.value.forEach(r => {
+    const el = roundAnchors.value[r]
+    if (!el) return
+    const top = el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop
+    if (scrollTop >= top - 1) active = r
+  })
+  currentRound.value = active
+}
 const skillNameById = (id) => {
   const s = skills.value.find(x => x.cfgId === id)
   return s ? s.name : (id || '')
@@ -207,6 +262,9 @@ const startBattle = async () => {
     const res = await battleApi.simulate(payload)
     battleLog.value = res.log || []
     result.value = res
+    await nextTick()
+    initRoundAnchors()
+    scrollToRound(1)
   } catch (e) {
     ElMessage.error('战斗计算失败')
   }
@@ -297,6 +355,10 @@ onMounted(() => {
 .vs { font-size: 32px; font-weight: 800; display:flex; align-items:center; justify-content:center; }
 .log { max-height: 240px; overflow:auto; font-size: 13px; }
 .log-item { padding: 4px 0; border-bottom: 1px dashed #eee; }
+.card-header { display:flex; align-items:center; justify-content: space-between; }
+.round-tabs { display:flex; gap:6px; }
+.round-tab { padding: 2px 8px; }
+.round-tab.active { background-color:#409eff !important; color:#fff !important; }
 .top-row { display:flex; align-items:center; gap:8px; margin-bottom: 6px; }
 .skill-row { margin-top: 6px; }
 .skill-btn { width: 120px; border-radius: 4px; font-size: 13px; }
@@ -306,3 +368,50 @@ onMounted(() => {
 .skill-pill.innate { background: #fff7e6; border: 1px solid #ffd591; color: #ad6800; }
 .switch-btn { margin-bottom: 0; }
 </style>
+const logRef = ref(null)
+const currentRound = ref(1)
+const totalRounds = computed(() => {
+  const rounds = new Set((battleLog.value || []).map(e => e.round))
+  return Array.from(rounds).sort((a,b) => a-b)
+})
+
+const roundAnchors = ref([])
+const initRoundAnchors = () => {
+  roundAnchors.value = []
+  const container = logRef.value
+  if (!container) return
+  const items = container.querySelectorAll('.log-item')
+  const firstIndexByRound = new Map()
+  // 根据数据计算每个回合的首行索引
+  battleLog.value.forEach((e, idx) => {
+    if (!firstIndexByRound.has(e.round)) firstIndexByRound.set(e.round, idx)
+  })
+  totalRounds.value.forEach(r => {
+    const idx = firstIndexByRound.get(r)
+    if (idx !== undefined) roundAnchors.value[r] = items[idx]
+  })
+}
+
+const scrollToRound = (r) => {
+  const container = logRef.value
+  const anchor = roundAnchors.value[r]
+  if (!container || !anchor) return
+  const firstItem = container.querySelector('.log-item')
+  const top = anchor.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop
+  container.scrollTo({ top, behavior: 'smooth' })
+  currentRound.value = r
+}
+
+const onLogScroll = () => {
+  const container = logRef.value
+  if (!container) return
+  const scrollTop = container.scrollTop
+  let active = currentRound.value
+  totalRounds.value.forEach(r => {
+    const el = roundAnchors.value[r]
+    if (!el) return
+    const top = el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop
+    if (scrollTop >= top - 1) active = r
+  })
+  currentRound.value = active
+}
