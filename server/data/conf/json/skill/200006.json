@@ -1,0 +1,65 @@
+{
+    "cfgId": 200006,
+    "name": "牢底坐穿",
+    "portrait": "/resources/skin/skill/default_jianyi.png",
+    "triggerType": "被动",
+    "effectTypes": [
+        "减益"
+    ],
+    "targetType": "自己",
+    "maxEquip": 1,
+    "cavalry": true,
+    "archer": true,
+    "shield": false,
+    "spear": false,
+    "siege": false,
+    "heritageSources": [
+        {
+            "100006": "槽多多"
+        }
+    ],
+    "description": "杀敌一百，有概率自损一万，常在河边走",
+    "impactFactors": [
+        {
+            "triggerRate": 35,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 42.2,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 49.4,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 56.7,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 63.9,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 71.1,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 78.3,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 85.6,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 92.8,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        }
+    ],
+    "quality": "C"
+}

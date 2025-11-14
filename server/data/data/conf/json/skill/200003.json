@@ -1,0 +1,66 @@
+{
+    "cfgId": 200003,
+    "name": "虽迟但到",
+    "portrait": "/resources/skin/skill/200003.jpeg",
+    "triggerType": "阵法",
+    "effectTypes": [
+        "增益"
+    ],
+    "targetType": "自己",
+    "maxEquip": 1,
+    "cavalry": true,
+    "archer": true,
+    "shield": true,
+    "spear": true,
+    "siege": true,
+    "heritageSources": [
+        {
+            "100003": "旅美小将"
+        }
+    ],
+    "description": "随心所欲，来去办公室如出入无人之境",
+    "impactFactors": [
+        {
+            "triggerRate": 50,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 55.6,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 61.1,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 66.7,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 72.2,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 77.8,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 83.3,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 88.9,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 94.4,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        }
+    ],
+    "quality": "S",
+    "troopTypes": []
+}

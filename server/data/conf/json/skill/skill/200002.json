@@ -1,0 +1,60 @@
+{
+    "cfgId": 200002,
+    "name": "遛川",
+    "portrait": "/resources/skin/skill/200002.png",
+    "triggerType": "指挥",
+    "effectTypes": [],
+    "targetType": "敌军单体",
+    "maxEquip": 1,
+    "cavalry": true,
+    "archer": true,
+    "shield": true,
+    "spear": true,
+    "siege": true,
+    "heritageSources": [],
+    "description": "可以把特朗普当狗溜",
+    "impactFactors": [
+        {
+            "triggerRate": 60,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 70,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 75,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 80,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 85,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 90,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 93,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 95,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 97,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        }
+    ],
+    "quality": "S",
+    "troopTypes": []
+}

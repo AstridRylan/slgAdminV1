@@ -1,0 +1,92 @@
+{
+    "cfgId": 200001,
+    "name": "麻嘎",
+    "portrait": "/resources/skin/skill/default_bingren.png",
+    "triggerType": "主动",
+    "effectTypes": [
+        "谋略"
+    ],
+    "targetType": "敌军群体（1-2人）",
+    "maxEquip": 1,
+    "cavalry": true,
+    "archer": true,
+    "shield": true,
+    "spear": true,
+    "siege": false,
+    "heritageSources": [
+        {
+            "100001": "特朗普"
+        }
+    ],
+    "description": "对敌人造成%d谋略伤害",
+    "impactFactors": [
+        {
+            "triggerRate": 35,
+            "coefficients": [
+                75
+            ]
+        },
+        {
+            "triggerRate": 37.8,
+            "coefficients": [
+                83.3
+            ]
+        },
+        {
+            "triggerRate": 40.6,
+            "coefficients": [
+                91.7
+            ]
+        },
+        {
+            "triggerRate": 43.3,
+            "coefficients": [
+                100
+            ]
+        },
+        {
+            "triggerRate": 46.1,
+            "coefficients": [
+                108.3
+            ]
+        },
+        {
+            "triggerRate": 48.9,
+            "coefficients": [
+                116.7
+            ]
+        },
+        {
+            "triggerRate": 51.7,
+            "coefficients": [
+                125
+            ]
+        },
+        {
+            "triggerRate": 54.4,
+            "coefficients": [
+                133.3
+            ]
+        },
+        {
+            "triggerRate": 57.2,
+            "coefficients": [
+                141.7
+            ]
+        },
+        {
+            "triggerRate": 60,
+            "coefficients": [
+                150
+            ]
+        }
+    ],
+    "quality": "C",
+    "troopTypes": [
+        "cavalry",
+        "archer",
+        "shield",
+        "spear",
+        "siege"
+    ]
+}

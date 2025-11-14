@@ -1,0 +1,65 @@
+{
+    "cfgId": 200005,
+    "name": "身在曹营心在汉",
+    "portrait": "/resources/skin/skill/default_moulue.png",
+    "triggerType": "被动",
+    "effectTypes": [
+        "谋略"
+    ],
+    "targetType": "自己",
+    "maxEquip": 1,
+    "cavalry": true,
+    "archer": false,
+    "shield": false,
+    "spear": false,
+    "siege": false,
+    "heritageSources": [
+        {
+            "100005": "小孩哥"
+        }
+    ],
+    "description": "被动技能，经常往汉营跑",
+    "impactFactors": [
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        }
+    ],
+    "quality": "S"
+}

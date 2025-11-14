@@ -1,0 +1,65 @@
+{
+    "cfgId": 200007,
+    "name": "骑蛋难下",
+    "portrait": "/resources/skin/skill/default_jianyi.png",
+    "triggerType": "主动",
+    "effectTypes": [
+        "减益"
+    ],
+    "targetType": "自己",
+    "maxEquip": 1,
+    "cavalry": false,
+    "archer": true,
+    "shield": false,
+    "spear": false,
+    "siege": false,
+    "heritageSources": [
+        {
+            "100007": "新歪暮"
+        }
+    ],
+    "description": "吴地绝技，吴地同一时刻只有一人可习得此术",
+    "impactFactors": [
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        },
+        {
+            "triggerRate": 100,
+            "coefficients": []
+        }
+    ],
+    "quality": "S"
+}
