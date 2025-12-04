@@ -73,5 +73,5 @@ def init_general_api(api):
     api.add_resource(GeneralGetByName, '/generals/get_general_by_name/<string:name>')
     api.add_resource(GeneralAdd, '/generals/add_general')
     api.add_resource(GeneralUpdate, '/generals/update_general')
-    api.add_resource(GeneralDelete, '/generals/delete_general')
+    api.add_resource(GeneralDelete, '/generals/del_general')
     api.add_resource(GeneralPortraitUpload, '/generals/upload_portrait/<int:cfgId>')

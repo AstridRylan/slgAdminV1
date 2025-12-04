@@ -66,5 +66,5 @@ def init_skill_api(api):
     api.add_resource(SkillGetByName, '/skills/get_skill_by_name/<string:name>')
     api.add_resource(SkillAdd, '/skills/add_skill')
     api.add_resource(SkillUpdate, '/skills/update_skill')
-    api.add_resource(SkillDelete, '/skills/delete_skill')
+    api.add_resource(SkillDelete, '/skills/del_skill')
     api.add_resource(SkillPortraitUpload, '/skills/upload_portrait/<int:cfgId>')
